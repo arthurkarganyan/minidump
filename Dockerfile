@@ -14,11 +14,9 @@ COPY Gemfile Gemfile.lock ./
 
 RUN bundle config --global frozen 1 && \
     gem update bundler && \
-    apk add --no-cache build-base && \
-    apk add --no-cache git g++ musl-dev make libstdc++ && \
+    apk add --no-cache build-base g++ make && \
     bundle install --without test && \
-    apk del --purge git g++ musl-dev make && \
-    apk del --purge build-base
+    apk del --purge build-base g++ make
 
 COPY . .
 
