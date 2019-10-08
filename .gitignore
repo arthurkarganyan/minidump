@@ -1,0 +1,25 @@
+/.bundle
+.idea/*
+doc/*
+coverage/*
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.dump
+/db/structure.sql
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore rvm files
+.ruby-version
+.ruby-gemset
+.rvmrc
+
+config/config.yml
+config/database.yml
+
+node_modules
+web_modules
+dumps
