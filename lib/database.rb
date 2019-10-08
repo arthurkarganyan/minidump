@@ -19,6 +19,10 @@ class Database
     App.logger.info stdout
     App.logger.info stderr
 
+    stdout, stderr, status = Open3.capture3("ls -la")
+    App.logger.info stdout
+    App.logger.info stderr
+
     path = ENV['RCLONE_CONFIG']
     f = File.open(path).read.split("\n").map(&:strip).select { |i| i[0] != '#' }
     swift_storage_name = f[0][1..-2]
