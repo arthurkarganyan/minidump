@@ -12,24 +12,23 @@ class Database
     DateTime.now.strftime('%Y.%m.%d.%H.%M.%S.%L')
   end
 
-  def new_dump_path
-    "#{DUMP_FOLDER}/#{new_filename}"
-  end
-
   def dump!
-    file_path = new_dump_path
+    new_filename = "#{name}.#{self.class.name}.#{timestamp}.dump.gz"
+    file_path = "#{DUMP_FOLDER}/#{new_filename}"
     stdout, stderr, status = Open3.capture3(dump_cmd(file_path))
     App.logger.info stdout
     App.logger.info stderr
 
-    cmd = "rclone --config #{ENV['RCLONE_CONFIG']} copy BackupStorage:Another/index.html 1.html"
+    path = ENV['RCLONE_CONFIG']
+    f = File.open(path).read.split("\n").map(&:strip).select { |i| i[0] != '#' }
+    swift_storage_name = f[0][1..-2]
+    cmd = "rclone --config #{path} copy #{file_path} #{swift_storage_name}:#{name}.#{self.class.name}"
+    App.logger.info("Running: #{cmd}")
     stdout, stderr, status = Open3.capture3(cmd)
     App.logger.info stdout
     App.logger.info stderr
 
+    `rm #{file_path}`
   end
 
-  def new_filename
-    "#{self.class.name}.#{timestamp}.dump.gz"
-  end
 end
