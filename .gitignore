@@ -22,5 +22,5 @@ config/database.yml
 
 node_modules
 web_modules
-dumps
+dumps/*.gz
 rclone.sh
