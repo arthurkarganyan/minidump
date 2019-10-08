@@ -2,3 +2,5 @@ node_modules
 web_modules
 dumps
 .idea
+README.md
+rclone.sh

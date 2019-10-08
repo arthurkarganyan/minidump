@@ -10,5 +10,4 @@ class App
   end
 end
 
-Dir['./config/initializers/*.rb'].each(&method(:require))
 Dir['./lib/*.rb'].each(&method(:require))
