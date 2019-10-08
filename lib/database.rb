@@ -16,6 +16,7 @@ class Database
     new_filename = "#{name}.#{self.class.name}.#{timestamp}.dump.gz"
     file_path = "#{new_filename}"
     `#{dump_cmd(file_path)}`
+    sleep 120
     path = ENV['RCLONE_CONFIG']
     f = File.open(path).read.split("\n").map(&:strip).select { |i| i[0] != '#' }
     swift_storage_name = f[0][1..-2]
