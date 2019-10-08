@@ -14,7 +14,7 @@ COPY Gemfile Gemfile.lock ./
 
 RUN bundle config --global frozen 1 && \
     gem update bundler && \
-    apk add --no-cache build-base g++ make && \
+    apk add --no-cache build-base g++ make mongodb-tools && \
     bundle install --without test && \
     apk del --purge build-base g++ make
 
