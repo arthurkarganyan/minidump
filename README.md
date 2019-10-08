@@ -28,6 +28,10 @@ services:
 networks:
   mongo:
     external: true
+ 
+secrets:
+  rclone.sh:
+    file: rclone.sh
 ```
 
 
