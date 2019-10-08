@@ -14,7 +14,7 @@ class Database
 
   def dump!
     new_filename = "#{name}.#{self.class.name}.#{timestamp}.dump.gz"
-    file_path = "#{DUMP_FOLDER}/#{new_filename}"
+    file_path = "#{new_filename}"
     stdout, stderr, status = Open3.capture3(dump_cmd(file_path))
     App.logger.info stdout
     App.logger.info stderr
