@@ -10,7 +10,7 @@ class App
   end
 end
 
-autoload :Database, 'lib/database.rb'
-autoload :PostgresDatabase,  'lib/postgres_database.rb'
-autoload :MongoDatabase, 'lib/mongo_database_database.rb'
+autoload :Database, '../lib/database.rb'
+autoload :PostgresDatabase,  '../lib/postgres_database.rb'
+autoload :MongoDatabase, '../lib/mongo_database_database.rb'
 
