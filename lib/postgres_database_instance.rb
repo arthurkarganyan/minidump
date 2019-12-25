@@ -1,9 +1,9 @@
-class MongoDatabaseInstance < DatabaseInstance
-  attr_reader :host, :client, :databases
+class PostgresDatabaseInstance
+  attr_reader  :client, :databases
 
   def initialize
-    super
-    @client = Mongo::Client.new("mongodb://#{host}:27017")
+    @host = ENV['MONGO_HOST'] || '127.0.0.1'
+    @client = Mongo::Client.new("mongodb://#{@host}:27017")
     @databases = client.list_databases.reject do |i|
       %w(admin config local undefined).include?(i['name'])
     end.map do |i|

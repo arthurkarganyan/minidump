@@ -7,7 +7,6 @@ RUN apk add --no-cache ca-certificates wget && \
     mv ./rclone-*/rclone /usr/bin && \
     rm -rf "/tmp/"* 2>/dev/null || true
 
-
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./

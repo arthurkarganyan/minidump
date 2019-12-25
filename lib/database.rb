@@ -1,7 +1,7 @@
 class Database
   DUMP_FOLDER = "dumps"
 
-  attr_reader :name, :db_instance
+  attr_reader :name, :db_instance, :host
 
   def initialize(name, db_instance)
     @name = name
