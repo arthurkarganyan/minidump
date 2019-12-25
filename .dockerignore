@@ -5,3 +5,4 @@ dumps
 README.md
 rclone.sh
 .git
+.gitignore
