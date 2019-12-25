@@ -1,11 +1,11 @@
 class Database
   DUMP_FOLDER = "dumps"
 
-  attr_reader :name, :db_instance, :host
+  attr_reader :name, :host
 
-  def initialize(name, db_instance)
+  def initialize(name:, host:)
     @name = name
-    @db_instance = db_instance
+    @host = host
   end
 
   def timestamp
