@@ -10,4 +10,7 @@ class App
   end
 end
 
-Dir['./lib/*.rb'].each(&method(:require))
+autoload :Database, '../lib/database'
+autoload :PostgresDatabase,  '../lib/postgres_database'
+autoload :MongoDatabase, '../lib/mongo_database_database'
+
