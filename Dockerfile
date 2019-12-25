@@ -19,4 +19,4 @@ RUN bundle config --global frozen 1 && \
 
 COPY . .
 
-CMD ["rake", "dump_all"]
+CMD ["rake", "dump"]
