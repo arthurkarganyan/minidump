@@ -12,5 +12,5 @@ end
 
 require_relative '../lib/database.rb'
 require_relative '../lib/postgres_database.rb'
-require_relative '../lib/mongo_database_database.rb'
+require_relative '../lib/mongo_database.rb'
 
