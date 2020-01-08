@@ -1,6 +1,7 @@
 require "bundler/setup"
 require 'logger'
 require 'open3'
+require 'time'
 
 Bundler.require(:default)
 
