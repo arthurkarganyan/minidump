@@ -15,10 +15,8 @@ class Database
   end
 
   def dump!
-    new_filename = "#{name}.#{self.class.name}.#{timestamp}.dump.gz"
+    new_filename = "#{name}.#{self.class.name}.#{timestamp}.dump"
     run_sh dump_cmd(new_filename)
-    run_sh "tar czf #{new_filename} dump"
-    run_sh "rm -r dump"
     path = ENV['RCLONE_CONFIG']
     f = File.open(path).read.split("\n").map(&:strip).select { |i| i[0] != '#' }
     swift_storage_name = f[0][1..-2]
