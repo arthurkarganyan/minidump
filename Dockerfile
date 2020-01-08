@@ -7,7 +7,8 @@ RUN apk add --no-cache ca-certificates wget postgresql && \
     wget -qO ./rclone.zip https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
     unzip ./rclone.zip && \
     mv ./rclone-*/rclone /usr/bin && \
-    rm -rf "/tmp/"* 2>/dev/null || true
+    rm -rf "/tmp/"* 2>/dev/null || true && \
+    gem install bundler:2.0.2
 
 COPY . .
 
