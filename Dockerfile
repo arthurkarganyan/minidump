@@ -10,6 +10,11 @@ RUN apk add --no-cache ca-certificates wget postgresql && \
     rm -rf "/tmp/"* 2>/dev/null || true && \
     gem install bundler:2.0.2
 
+COPY Gemfile Gemfile.lock ./
+
+RUN bundle config --global frozen 1 && \
+    bundle install --without test
+
 COPY . .
 
 CMD ["rake", "dump"]
