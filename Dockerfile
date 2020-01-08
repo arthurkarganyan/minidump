@@ -1,6 +1,6 @@
 FROM ruby:2.5.3-alpine
 
-RUN apk add --no-cache ca-certificates wget && \
+RUN apk add --no-cache ca-certificates wget postgresql && \
     cd /tmp && \
     wget -qO ./rclone.zip https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
     unzip ./rclone.zip && \
@@ -8,14 +8,6 @@ RUN apk add --no-cache ca-certificates wget && \
     rm -rf "/tmp/"* 2>/dev/null || true
 
 WORKDIR /app
-
-COPY Gemfile Gemfile.lock ./
-
-RUN bundle config --global frozen 1 && \
-    gem update bundler && \
-    apk add --no-cache build-base g++ make mongodb-tools postgresql && \
-    bundle install --without test && \
-    apk del --purge build-base g++ make
 
 COPY . .
 
