@@ -15,7 +15,7 @@ class Database
   end
 
   def dump!
-    new_filename = "#{name}.#{self.class.name}.#{timestamp}.dump"
+    new_filename = "#{name}.#{self.class.name}.#{timestamp}.dump.sql"
     run_sh dump_cmd(new_filename)
     path = ENV['RCLONE_CONFIG']
     f = File.open(path).read.split("\n").map(&:strip).select { |i| i[0] != '#' }
