@@ -6,7 +6,7 @@ Bundler.require(:default)
 
 class App
   def self.logger
-    @logger ||= Logger.new(STDOUT)
+    @logger ||= Logger.new(STDERR)
   end
 end
 
